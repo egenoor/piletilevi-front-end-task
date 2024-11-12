@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
-  imports: [],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
+  constructor(private _sanitizer: DomSanitizer) {}
 
+  getSvgUrl(url: string) {
+    return this._sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }

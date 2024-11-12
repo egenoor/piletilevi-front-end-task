@@ -1,0 +1,15 @@
+.table-container {
+  box-shadow: 0px 4px 20px 0px #D6DFE5;
+  border-radius: 6px;
+
+  table {
+    tbody tr {
+      border-top: 1px solid #D6D2E1;
+      border-bottom: 1px solid #D6D2E1;
+    }
+  
+    tr:nth-child(even) {
+      background-color: #f5f5f7;
+    }
+  }
+}

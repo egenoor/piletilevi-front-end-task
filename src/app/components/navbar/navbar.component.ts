@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +7,71 @@ import { DomSanitizer } from '@angular/platform-browser'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-  constructor(private _sanitizer: DomSanitizer) {}
+  isLanguageDropdownOpened: boolean = false;
+  activeLanguage: string = "EN";
+  selectableLanguages: string[] = ["ET"];
+  allLanguages: string[] = ["EN", "ET"];
 
-  getSvgUrl(url: string) {
-    return this._sanitizer.bypassSecurityTrustResourceUrl(url);
+  menuItems: {
+    id: number,
+    title: string,
+    route: string,
+    active: boolean
+  }[] = [
+    {
+      id: 1,
+      title: "Back office",
+      route: "/backoffice",
+      active: true
+    },
+    {
+      id: 2,
+      title: "Back office",
+      route: "/backoffice",
+      active: false
+    },
+    {
+      id: 3,
+      title: "Reports",
+      route: "/reports",
+      active: false
+    },
+    {
+      id: 4,
+      title: "Help",
+      route: "/help",
+      active: false
+    }
+  ]
+  activeTextClass = "text-dark-violet"
+  activeClass = "bg-dark-violet";
+  inactiveClass = "bg-transparent border-t-0";
+
+  handleRouteChange (routeId: number) {
+    this.menuItems.forEach((item) => {
+      item.active = false
+      if (item.id === routeId) {
+        item.active = true
+      }
+    })
+  }
+
+  openLanguageDropdown() {
+    this.isLanguageDropdownOpened = true;
+    this.setSelectableLanguages();
+  }
+
+  closeLanguageDropdown() {
+    this.isLanguageDropdownOpened = false;
+  }
+
+  changeLanguage(event: MouseEvent) {
+    this.activeLanguage = (event.target as HTMLElement).innerHTML;
+    this.setSelectableLanguages();
+    this.closeLanguageDropdown();
+  }
+
+  setSelectableLanguages() {
+    this.selectableLanguages = this.allLanguages.filter(language => this.activeLanguage !== language);
   }
 }

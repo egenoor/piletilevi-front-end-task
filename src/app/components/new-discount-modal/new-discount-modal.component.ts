@@ -8,5 +8,15 @@ import { Category } from '../../enums/category'
 })
 export class NewDiscountModalComponent {
   categories = Object.values(Category);
+  isCategoriesDropdownOpen: boolean = false;
   @Input({required: true}) onClose!: () => void;
+
+  openCategoriesDropdown() {
+    this.isCategoriesDropdownOpen = true
+  }
+
+  closeCategoriesDropdown() {
+    this.isCategoriesDropdownOpen = false;
+  }
+
 }

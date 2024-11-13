@@ -1,26 +1,60 @@
 <div
   class="navbar-container h-20 flex content-center flex-wrap justify-between"
 >
-  <ul class="flex space-x-4">
+  <div class="flex">
+    <app-piletilevi-svg
+      class="self-center mr-4 mt-4"
+      [name]="'piletilevi-logo'"
+    />
+    <ul class="h-20 flex content-center items-end">
+      <li
+        *ngFor="let item of menuItems"
+        class="h-12 ml-11 flex flex-col justify-between"
+      >
+        <a
+          class="text-lg font-bold leading-6 {{
+            item.active ? activeTextClass : ''
+          }}"
+          href="#"
+          (click)="handleRouteChange.bind(this)(item.id)"
+        >
+          {{ item.title }}
+        </a>
+        <hr
+          class="h-1 rounded-md {{ item.active ? activeClass : inactiveClass }}"
+        />
+      </li>
+    </ul>
+  </div>
+  <ul class="flex items-center">
     <li>
-      <app-piletilevi-svg />
+      <div (mouseleave)="closeLanguageDropdown()">
+        <button class="flex items-center" (click)="openLanguageDropdown()">
+          <span class="mr-1">{{ activeLanguage }}</span
+          ><app-piletilevi-svg [name]="'arrow-down'" class="mb-1" />
+        </button>
+        <ul *ngIf="isLanguageDropdownOpened" class="absolute">
+          <li
+            *ngFor="let lang of selectableLanguages"
+            (click)="changeLanguage($event)"
+          >
+            {{ lang }}
+          </li>
+        </ul>
+      </div>
     </li>
-    <li>
-      <a class="text-lg font-bold leading-6">Back office</a>
-    </li>
-    <li>
-      <a class="text-lg font-bold leading-6">Back office</a>
-    </li>
-    <li>
-      <a class="text-lg font-bold leading-6">Reports</a>
-    </li>
-    <li>
-      <a class="text-lg font-bold leading-6">Help</a>
-    </li>
-  </ul>
-  <ul class="flex">
-    <li>EN</li>
-    <li>Name Surname |</li>
-    <li>Noorsooteater</li>
+    <table>
+      <tr>
+        <td class="border-r-2 border-input-border">
+          <div class="ml-11 mr-2">Name Surname</div>
+        </td>
+        <td>
+          <div class="ml-2 flex items-center">
+            <span class="mr-2 font-bold">Noorsooteater</span
+            ><app-piletilevi-svg [name]="'arrow-down'" class="mb-1" />
+          </div>
+        </td>
+      </tr>
+    </table>
   </ul>
 </div>

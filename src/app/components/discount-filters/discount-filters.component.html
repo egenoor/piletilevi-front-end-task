@@ -1,1 +1,30 @@
-<p>discount-filters works!</p>
+<div class="flex justify-between h-10 mt-4">
+  <div class="search-input-container">
+    <input
+      type="text"
+      placeholder="Discount name, code"
+      class="px-2 py-3 text-dark-gray placeholder-dark-gray"
+      [(ngModel)]="freeText"
+    />
+    <button class="clear bg-white">
+      <app-piletilevi-svg [name]="'close'" />
+    </button>
+    <button class="search bg-white">
+      <app-piletilevi-svg [name]="'search'" />
+    </button>
+  </div>
+  <button
+    class="bg-white border rounded-md border-input-border px-2 py-3 text-dark-gray text-left"
+  >
+    Applies to
+  </button>
+  <button
+    class="px-5 py-2 border-2 border-dark-violet rounded-md text-dark-violet font-bold"
+    (click)="searchDiscounts.bind(this)(freeText, category)"
+  >
+    SEARCH
+  </button>
+  <button class="text-dark-gray font-bold" (click)="clearFilters.bind(this)()">
+    Clear all
+  </button>
+</div>

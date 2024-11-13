@@ -1,0 +1,38 @@
+$button-size: 40px;
+$input-width: 284px;
+$border-size: 1px;
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  min-width: $input-width;
+  border: $border-size solid #D6D2E1;
+  border-radius: 6px;
+
+  input {
+    border-radius: 6px;
+    min-width: $input-width - (2 * $button-size);
+
+    &, &:active, &:focus, &:focus-visible {
+      border: 0;
+      outline: none;
+    }
+  }
+
+  button {
+    position: absolute;
+    height: $button-size - $border-size * 2;
+    width: $button-size;
+
+    &.clear {
+      right: $button-size;
+      border-width: 0 $border-size 0 0;
+      border-color: #D6D2E1;
+    }
+    &.search {
+      right: 0px;
+      border: 0;
+      border-radius: 0 6px 6px 0;
+    }
+  }
+}

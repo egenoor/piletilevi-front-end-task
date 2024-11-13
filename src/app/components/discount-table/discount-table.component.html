@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let discount of discounts$ | async">
+      <tr *ngFor="let discount of filteredDiscounts">
         <td class="text-violet font-bold pl-1 pt-1 pb-8">
           {{ discount.name }}
         </td>

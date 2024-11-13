@@ -1,1 +1,32 @@
-<p>new-discount-modal works!</p>
+<app-modal [onClose]="onClose">
+  <div modal-title>
+    <h3 class="header-title font-bold text-dark-blue">Create discount</h3>
+  </div>
+  <div modal-body>
+    <div>
+      <input
+        placeholder="Discount name"
+        class="border rounded-md border-input-border px-2 py-3 mb-5 mt-10 w-full text-dark-gray placeholder-dark-gray"
+      />
+    </div>
+    <div class="flex justify-between">
+      <button
+        class="border rounded-md border-input-border px-2 py-3 text-dark-gray w-full text-left"
+      >
+        Applies to
+      </button>
+      <div class="dropdown-content">
+        <label *ngFor="let category of categories"
+          ><input type="checkbox" />{{ category }}</label
+        >
+      </div>
+      <button
+        class="bg-dark-violet text-white px-4 py-3 rounded-md font-bold ml-4"
+        type="button"
+        (click)="onClose()"
+      >
+        ADD
+      </button>
+    </div>
+  </div>
+</app-modal>

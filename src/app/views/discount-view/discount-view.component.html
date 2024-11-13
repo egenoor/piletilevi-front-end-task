@@ -1,7 +1,20 @@
 <div class="mx-32">
   <app-breadcrumb></app-breadcrumb>
-  <h1 class="font-title text-almost-black text-4xl font-bold mt-5">
-    Discounts
-  </h1>
+  <div class="flex justify-between">
+    <h1 class="font-title text-almost-black text-4xl font-bold mt-5">
+      Discounts
+    </h1>
+    <button
+      type="button"
+      class="bg-dark-violet text-white px-5 rounded-md font-bold"
+      (click)="openDiscountModal()"
+    >
+      CREATE NEW DISCOUNT
+    </button>
+  </div>
   <app-discount-table></app-discount-table>
+  <app-new-discount-modal
+    *ngIf="isDiscountModalShown"
+    [onClose]="closeDiscountModal.bind(this)"
+  ></app-new-discount-modal>
 </div>

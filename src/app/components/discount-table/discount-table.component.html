@@ -1,8 +1,8 @@
-<div class="table-container bg-white">
-  <table class="table-auto w-full p-10 text-left text-sm">
+<div class="table-container p-10 mt-3 bg-white">
+  <table class="w-full text-left text-sm">
     <thead>
       <tr>
-        <th class="px-8 py-4">Name</th>
+        <th class="pl-4">Name</th>
         <th>Applies to</th>
         <th>Time period</th>
         <th>Discount amount</th>
@@ -10,11 +10,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let discount of discounts$ | async">
-        <td class="text-violet font-bold p-8">{{ discount.name }}</td>
-        <td>{{ discount.category }}</td>
-        <td>{{ discount.timePeriod }}</td>
-        <td>{{ discount.amount }}</td>
+        <td class="text-violet font-bold pl-1 pt-1 pb-8">
+          {{ discount.name }}
+        </td>
+        <td class="pl-1 pt-1 pb-8">{{ discount.category }}</td>
+        <td class="pl-1 pt-1 pb-8">{{ discount.timePeriod }}</td>
+        <td class="pl-1 pt-1 pb-8">{{ discount.amount }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+<app-pagination></app-pagination>

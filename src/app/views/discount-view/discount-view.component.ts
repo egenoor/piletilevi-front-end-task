@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-discount-view',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './discount-view.component.scss'
 })
 export class DiscountViewComponent {
+  isDiscountModalShown: boolean = false;
 
+  closeDiscountModal() {
+    this.isDiscountModalShown = false;
+  }
+
+  openDiscountModal() {
+    this.isDiscountModalShown = true;
+  }
 }

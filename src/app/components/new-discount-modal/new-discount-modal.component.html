@@ -6,7 +6,7 @@
     <div>
       <input
         placeholder="Discount name"
-        class="border-gray-200 placeholder-gray-350 mb-5 mt-10 w-full rounded-md border px-2 py-3 text-dark-gray"
+        class="border-gray-200 placeholder-gray-350 text-gray-350 mb-5 mt-10 w-full rounded-md border px-2 py-3"
       />
     </div>
     <div class="dropdown-container flex justify-between">
@@ -14,7 +14,11 @@
         (click)="openCategoriesDropdown()"
         class="border-gray-200 text-gray-350 flex w-full justify-between rounded-md border px-2 py-3 text-left"
       >
-        Applies to
+        @if (selectedCategories.length > 0) {
+          {{ selectedCategories.join(", ") }}
+        } @else {
+          Applies to
+        }
         <app-piletilevi-svg [name]="'arrow-down'" />
       </button>
       <div
@@ -27,6 +31,7 @@
             [value]="c"
             [name]="'category'"
             [onChange]="setCategory.bind(this)"
+            [isChecked]="selectedCategories.includes(c)"
           />
           <span class="ml-2 py-4">{{ c }}</span>
         </label>

@@ -6,10 +6,10 @@
       class="text-gray-350 placeholder-gray-350 px-2 py-3"
       [(ngModel)]="freeText"
     />
-    <button class="clear bg-white">
+    <button class="clear bg-white" (click)="freeText = ''">
       <app-piletilevi-svg [name]="'close'" />
     </button>
-    <button class="search bg-white">
+    <button class="search cursor-default bg-white">
       <app-piletilevi-svg [name]="'search'" />
     </button>
   </div>
@@ -18,7 +18,11 @@
       (click)="openCategoriesDropdown()"
       class="border-gray-200 text-gray-350 flex w-full justify-between rounded-md border bg-white px-2 py-2 text-left"
     >
-      Applies to
+      @if (selectedCategories.length > 0) {
+        {{ selectedCategories.join(", ") }}
+      } @else {
+        Applies to
+      }
       <app-piletilevi-svg [name]="'arrow-down'" />
     </button>
     <div
@@ -31,18 +35,22 @@
           [value]="c"
           [name]="'category'"
           [onChange]="setCategory.bind(this)"
+          [isChecked]="selectedCategories.includes(c)"
         />
         <span class="ml-2 py-4">{{ c }}</span>
       </label>
     </div>
   </div>
   <button
-    class="border-violet-200 text-violet-200 mr-5 rounded-md border-2 px-5 py-2 font-bold"
+    class="border-violet-200 text-violet-200 mr-5 rounded-md border-2 px-5 py-2 text-sm font-bold leading-5"
     (click)="searchDiscounts.bind(this)(freeText, selectedCategories)"
   >
     SEARCH
   </button>
-  <button class="text-gray-350 font-bold" (click)="clearFilters.bind(this)()">
-    Clear all
+  <button
+    class="text-gray-350 text-sm font-bold leading-5"
+    (click)="clearFilters.bind(this)()"
+  >
+    Clear All
   </button>
 </div>

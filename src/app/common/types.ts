@@ -4,3 +4,5 @@ export interface Filters {
   freeText: string;
   categories: Category[];
 }
+
+export type DiscountTab = "currentlyActive" | "upcoming" | "archived";

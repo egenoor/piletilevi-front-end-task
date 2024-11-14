@@ -1,4 +1,10 @@
-<div class="table-container mt-5 bg-white p-10">
+<app-table-tabs
+  [activeDiscounts]="activeDiscounts.length"
+  [upcomingDiscounts]="upcomingDiscounts.length"
+  [archivedDiscounts]="archivedDiscounts.length"
+  [onTabChange]="handleTabChange.bind(this)"
+/>
+<div class="table-container mb-9 mt-5 bg-white p-10">
   <table class="w-full text-left text-sm">
     <thead>
       <tr>
@@ -9,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let discount of filteredDiscounts">
+      <tr *ngFor="let discount of getDiscountsPerPage()">
         <td class="text-violet-100 pb-8 pl-1 pt-1 font-bold">
           {{ discount.name }}
         </td>
@@ -27,4 +33,8 @@
     </tbody>
   </table>
 </div>
-<app-pagination></app-pagination>
+<app-pagination
+  [totalItems]="filteredDiscounts.length"
+  [pageSize]="pageSize"
+  (pageChanged)="handlePageChange($event)"
+/>

@@ -8,6 +8,7 @@ import { Category } from '../../enums/category'
 })
 export class CheckboxComponent {
   @Input() onChange!: (category: Category, event: Event) => void;
+  @Input() isChecked: boolean = false;
   @Input() value!: Category;
   @Input() name!: string;
 }

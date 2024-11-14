@@ -1,13 +1,27 @@
-<nav>
-  <ul class="inline-flex -space-x-px text-sm">
-    <li>
-      <button><</button>
-    </li>
-    <li>
-      <a href="#" class="flex h-8 items-center justify-center px-3">1</a>
-    </li>
-    <li>
-      <button>></button>
-    </li>
-  </ul>
-</nav>
+<div class="pagination mb-16 flex justify-center">
+  <button
+    class="border-gray-200 mr-4 h-8 w-8 rounded-md border bg-white"
+    (click)="changePage(currentPage - 1)"
+    [disabled]="currentPage === 1"
+  >
+    <app-piletilevi-svg [name]="'page-arrow-prev'" />
+  </button>
+  <span
+    *ngFor="let item of createArrayOfSize(totalPages); let i = index"
+    [ngClass]="
+      i + 1 === currentPage
+        ? 'text-black mr-4 font-medium'
+        : 'text-violet-100 mr-4 font-medium'
+    "
+  >
+    {{ i + 1 }}
+    <hr *ngIf="i + 1 === currentPage" class="bg-black underline-height" />
+  </span>
+  <button
+    class="border-gray-200 h-8 w-8 rounded-md border bg-white"
+    (click)="changePage(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+  >
+    <app-piletilevi-svg [name]="'page-arrow-next'" />
+  </button>
+</div>

@@ -3,8 +3,7 @@ import { Filters } from '../../common/types'
 
 @Component({
   selector: 'app-discount-view',
-  templateUrl: './discount-view.component.html',
-  styleUrl: './discount-view.component.scss'
+  templateUrl: './discount-view.component.html'
 })
 export class DiscountViewComponent {
   isDiscountModalShown: boolean = false;

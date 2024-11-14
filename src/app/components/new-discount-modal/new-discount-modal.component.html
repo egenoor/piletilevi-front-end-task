@@ -1,28 +1,38 @@
 <app-modal [onClose]="onClose">
   <div modal-title>
-    <h3 class="header-title font-bold text-dark-blue">Create discount</h3>
+    <h3 class="header-title text-blue-200 font-bold">Create discount</h3>
   </div>
   <div modal-body>
     <div>
       <input
         placeholder="Discount name"
-        class="border rounded-md border-input-border px-2 py-3 mb-5 mt-10 w-full text-dark-gray placeholder-dark-gray"
+        class="border-gray-200 placeholder-gray-350 mb-5 mt-10 w-full rounded-md border px-2 py-3 text-dark-gray"
       />
     </div>
-    <div class="flex justify-between">
+    <div class="dropdown-container flex justify-between">
       <button
         (click)="openCategoriesDropdown()"
-        class="border rounded-md border-input-border px-2 py-3 text-dark-gray w-full text-left"
+        class="border-gray-200 text-gray-350 flex w-full justify-between rounded-md border px-2 py-3 text-left"
       >
         Applies to
+        <app-piletilevi-svg [name]="'arrow-down'" />
       </button>
-      <div class="dropdown-content" *ngIf="isCategoriesDropdownOpen">
-        <label *ngFor="let category of categories"
-          ><input type="checkbox" />{{ category }}</label
-        >
+      <div
+        class="dropdown-content"
+        *ngIf="isCategoriesDropdownOpen"
+        (mouseleave)="closeCategoriesDropdown()"
+      >
+        <label *ngFor="let c of allCategories" class="flex items-center">
+          <app-checkbox
+            [value]="c"
+            [name]="'category'"
+            [onChange]="setCategory.bind(this)"
+          />
+          <span class="ml-2 py-4">{{ c }}</span>
+        </label>
       </div>
       <button
-        class="bg-dark-violet text-white px-4 py-3 rounded-md font-bold ml-4"
+        class="bg-violet-200 ml-4 rounded-md px-4 py-3 font-bold text-white"
         type="button"
         (click)="onClose()"
       >

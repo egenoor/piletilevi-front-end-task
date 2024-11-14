@@ -7,7 +7,8 @@ import { Category } from '../../enums/category'
   styleUrl: './new-discount-modal.component.scss'
 })
 export class NewDiscountModalComponent {
-  categories = Object.values(Category);
+  allCategories = Object.values(Category);
+  selectedCategories: Category[] = [];
   isCategoriesDropdownOpen: boolean = false;
   @Input({required: true}) onClose!: () => void;
 
@@ -17,6 +18,17 @@ export class NewDiscountModalComponent {
 
   closeCategoriesDropdown() {
     this.isCategoriesDropdownOpen = false;
+  }
+
+  setCategory(category: Category, event: Event) {
+    if ((event.target as HTMLInputElement).checked) {
+      this.selectedCategories.push(category);
+    } else {
+      const categoryIndex = this.selectedCategories.indexOf(category);
+      if (categoryIndex !== -1) {
+        this.selectedCategories.splice(categoryIndex, 1)
+      }
+    }
   }
 
 }

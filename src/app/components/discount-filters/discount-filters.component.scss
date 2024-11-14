@@ -36,3 +36,22 @@ $border-size: 1px;
     }
   }
 }
+
+.dropdown-container {
+  position: relative;
+  min-width: $input-width;
+}
+
+.dropdown-content {
+  position: absolute;
+  min-width: $input-width;
+  background-color: white;
+  box-shadow: 0px 4px 21px -5px #00000040;
+  z-index: 1;
+  border-radius: 6px;
+  top: $button-size;
+
+  label:hover {
+    background-color: #EAE9EF;
+  }
+}

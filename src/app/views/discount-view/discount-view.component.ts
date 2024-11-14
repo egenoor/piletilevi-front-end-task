@@ -8,7 +8,7 @@ import { Filters } from '../../common/types'
 })
 export class DiscountViewComponent {
   isDiscountModalShown: boolean = false;
-  filters: Filters = {freeText: "", category: ""};
+  filters: Filters = {freeText: "", categories: []};
 
   handleFiltersSubmit(filters: Filters) {
     this.filters = filters;

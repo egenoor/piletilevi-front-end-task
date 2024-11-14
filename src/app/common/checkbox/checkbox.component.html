@@ -1,0 +1,13 @@
+<div class="ml-2">
+  <input
+    type="checkbox"
+    id="checkbox-toggle"
+    class="hidden-checkbox"
+    [value]="value"
+    [name]="name"
+    (change)="onChange(value, $event)"
+  />
+  <div class="checkbox flex items-center">
+    <app-piletilevi-svg [name]="'checkmark'" class="mb-1 ml-1" />
+  </div>
+</div>

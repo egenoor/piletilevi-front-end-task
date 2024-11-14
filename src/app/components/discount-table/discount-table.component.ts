@@ -12,7 +12,7 @@ import { DiscountService } from '../../services/discount/discount.service'
   styleUrl: './discount-table.component.scss'
 })
 export class DiscountTableComponent implements OnInit {
-  private _filters: Filters = {freeText: "", category: ""};
+  private _filters: Filters = {freeText: "", categories: []};
   allDiscounts: MappedDiscount[] = [];
   filteredDiscounts: MappedDiscount[] = [];
   activeDiscounts: MappedDiscount[] = [];
@@ -35,16 +35,17 @@ export class DiscountTableComponent implements OnInit {
   constructor(private discountService: DiscountService){}
 
   filterMappedDiscounts(): MappedDiscount[] {
+    console.log(this.filters.categories)
     return this.allDiscounts.filter(discount => {
       const hasFreeText = this.filters.freeText !== "";
-      const hasCategory = this.filters.category !== "";
+      const hasCategory = this.filters.categories.length > 0;
 
       if (hasFreeText && hasCategory) {
-        return discount.name.toLowerCase().includes(this.filters.freeText.toLowerCase()) && discount.category === this.filters.category
+        return discount.name.toLowerCase().includes(this.filters.freeText.toLowerCase()) && this.filters.categories.includes(discount.category)
       } else if (hasFreeText && !hasCategory) {
         return discount.name.toLowerCase().includes(this.filters.freeText.toLowerCase())
       } else if (!hasFreeText && hasCategory) {
-        return discount.name === this.filters.category
+        return this.filters.categories.includes(discount.category)
       }
 
       return true;

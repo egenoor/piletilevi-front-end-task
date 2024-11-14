@@ -2,11 +2,24 @@
   font-size: 28px;
 }
 
+input:focus-visible {
+  outline: none;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
 .dropdown-content {
-  display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 394px;
+  background-color: white;
+  box-shadow: 0px 4px 21px -5px #00000040;
   z-index: 1;
+  border-radius: 6px;
+  top: 50px;
+  
+  label:hover {
+    background-color: #EAE9EF;
+  }
 }

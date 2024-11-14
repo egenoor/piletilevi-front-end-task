@@ -3,15 +3,16 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     colors: {
-      violet: "#3C00E5",
-      gray: "#9A9A9A",
       white: "#fff",
-      'dark-violet': "#19005F",
-      'dark-blue': "#212A4F",
-      'light-gray': "#f5f5f7",
-      'almost-black': "#1A1A1A",
-      'dark-gray': "#626262",
-      'input-border': "#D6D2E1"
+      "violet-100": "#3C00E5",
+      'violet-200': "#19005F",
+      'blue-200': "#212A4F",
+      'gray-100': "#f5f5f7",
+      'gray-150': "#EAE9EF",
+      'gray-200': "#D6D2E1",
+      'gray-300': "#9A9A9A",
+      'gray-350': "#626262",
+      'black': "#1A1A1A",
     },
     fontFamily: {
       'body': ['"Roboto"'],

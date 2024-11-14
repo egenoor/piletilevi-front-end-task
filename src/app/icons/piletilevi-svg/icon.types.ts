@@ -6,3 +6,4 @@ export type IconName =
   | "page-arrow-next"
   | "close"
   | "arrow-down"
+  | "checkmark"

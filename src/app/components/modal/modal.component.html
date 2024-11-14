@@ -1,9 +1,9 @@
 <div
-  class="z-1000 top-0 left-0 fixed w-screen h-screen bg-dark-gray bg-opacity-50"
+  class="z-1000 bg-gray-350 fixed left-0 top-0 h-screen w-screen bg-opacity-50"
 >
   <div class="modal bg-white">
     <ng-content select="[modal-title]"></ng-content>
-    <button type="button" class="absolute top-8 right-8" (click)="onClose()">
+    <button type="button" class="absolute right-8 top-8" (click)="onClose()">
       <app-piletilevi-svg [name]="'close'" />
     </button>
     <ng-content select="[modal-body]"></ng-content>

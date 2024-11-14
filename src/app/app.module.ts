@@ -11,7 +11,9 @@ import { NavbarComponent } from './components/navbar/navbar.component'
 import { NewDiscountModalComponent } from "./components/new-discount-modal/new-discount-modal.component"
 import { PaginationComponent } from "./components/pagination/pagination.component"
 import { PiletileviSvgComponent } from './icons/piletilevi-svg/piletilevi-svg.component'
-import { DiscountViewComponent } from './views/discount-view/discount-view.component'
+import { DiscountViewComponent } from './views/discount-view/discount-view.component';
+import { CheckboxComponent } from './common/checkbox/checkbox.component';
+import { TableTabsComponent } from './components/table-tabs/table-tabs.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DiscountViewComponent } from './views/discount-view/discount-view.compo
     NewDiscountModalComponent,
     ModalComponent,
     PaginationComponent,
-    DiscountFiltersComponent
+    DiscountFiltersComponent,
+    CheckboxComponent,
+    TableTabsComponent
   ],
   imports: [
     BrowserModule,

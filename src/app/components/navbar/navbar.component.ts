@@ -43,8 +43,8 @@ export class NavbarComponent {
       active: false
     }
   ]
-  activeTextClass = "text-dark-violet"
-  activeClass = "bg-dark-violet";
+  activeTextClass = "text-violet-200"
+  activeClass = "bg-violet-200";
   inactiveClass = "bg-transparent border-t-0";
 
   handleRouteChange (routeId: number) {

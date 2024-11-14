@@ -1,0 +1,18 @@
+<div class="border-gray-200 mt-5 flex justify-start border-b">
+  <div *ngFor="let tab of tableTabs" class="mr-4">
+    <a
+      class="font-bold leading-6 {{
+        tab.active ? activeTextClass : 'text-gray-350'
+      }}"
+      href="#"
+      (click)="setActiveFilter.bind(this)(tab.title)"
+    >
+      {{ tab.title }}
+    </a>
+    <hr
+      class="h-1 rounded-md {{
+        tab.active ? activeTabClass : inactiveTabClass
+      }}"
+    />
+  </div>
+</div>

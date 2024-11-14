@@ -1,9 +1,9 @@
-<div class="flex justify-between h-10 mt-4">
-  <div class="search-input-container">
+<div class="mt-4 flex h-10 justify-start">
+  <div class="search-input-container mr-3">
     <input
       type="text"
       placeholder="Discount name, code"
-      class="px-2 py-3 text-dark-gray placeholder-dark-gray"
+      class="text-gray-350 placeholder-gray-350 px-2 py-3"
       [(ngModel)]="freeText"
     />
     <button class="clear bg-white">
@@ -13,18 +13,36 @@
       <app-piletilevi-svg [name]="'search'" />
     </button>
   </div>
+  <div class="dropdown-container mr-5 flex justify-between">
+    <button
+      (click)="openCategoriesDropdown()"
+      class="border-gray-200 text-gray-350 flex w-full justify-between rounded-md border bg-white px-2 py-2 text-left"
+    >
+      Applies to
+      <app-piletilevi-svg [name]="'arrow-down'" />
+    </button>
+    <div
+      class="dropdown-content"
+      *ngIf="isCategoriesDropdownOpen"
+      (mouseleave)="closeCategoriesDropdown()"
+    >
+      <label *ngFor="let c of allCategories" class="flex items-center">
+        <app-checkbox
+          [value]="c"
+          [name]="'category'"
+          [onChange]="setCategory.bind(this)"
+        />
+        <span class="ml-2 py-4">{{ c }}</span>
+      </label>
+    </div>
+  </div>
   <button
-    class="bg-white border rounded-md border-input-border px-2 py-3 text-dark-gray text-left"
-  >
-    Applies to
-  </button>
-  <button
-    class="px-5 py-2 border-2 border-dark-violet rounded-md text-dark-violet font-bold"
-    (click)="searchDiscounts.bind(this)(freeText, category)"
+    class="border-violet-200 text-violet-200 mr-5 rounded-md border-2 px-5 py-2 font-bold"
+    (click)="searchDiscounts.bind(this)(freeText, selectedCategories)"
   >
     SEARCH
   </button>
-  <button class="text-dark-gray font-bold" (click)="clearFilters.bind(this)()">
+  <button class="text-gray-350 font-bold" (click)="clearFilters.bind(this)()">
     Clear all
   </button>
 </div>

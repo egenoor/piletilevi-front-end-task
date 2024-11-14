@@ -1,25 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
-import ArrowDown from './arrow-down'
-import Close from './close'
-import Edit from './edit'
-import { IconName } from './icon.types'
-import pageArrowNext from './page-arrow-next'
-import pageArrowPrev from './page-arrow-prev'
-import Logo from './piletilevi-logo'
-import Search from './search'
-import Checkmark from './checkmark'
+import ArrowDown from '../../../icons/piletilevi-svg/arrow-down'
+import Checkmark from '../../../icons/piletilevi-svg/checkmark'
+import Close from '../../../icons/piletilevi-svg/close'
+import Edit from '../../../icons/piletilevi-svg/edit'
+import { IconName } from '../../../icons/piletilevi-svg/icon.types'
+import pageArrowNext from '../../../icons/piletilevi-svg/page-arrow-next'
+import pageArrowPrev from '../../../icons/piletilevi-svg/page-arrow-prev'
+import Logo from '../../../icons/piletilevi-svg/piletilevi-logo'
+import Search from '../../../icons/piletilevi-svg/search'
 
 @Component({
-  selector: 'app-piletilevi-svg',
+  selector: 'app-icon',
   template: `
     <div class="inline-block" [innerHTML]="selectedIcon"></div>
   `,
 })
-export class PiletileviSvgComponent implements OnInit {
+export class IconComponent implements OnInit {
   iconMap: Record<IconName, SafeHtml>;
   selectedIcon: SafeHtml | null = null;
-  @Input() name!: IconName;
+  @Input({required: true}) name!: IconName;
 
   constructor(private sanitizer: DomSanitizer) {
     this.iconMap = {

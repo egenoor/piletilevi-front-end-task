@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core'
-import { DiscountTab } from '../../common/types'
+import { DiscountTab } from '../../common/types/discount-tab.type'
 
 @Component({
   selector: 'app-table-tabs',
@@ -12,10 +12,10 @@ export class TableTabsComponent implements OnChanges {
     archived: 0
   }
 
-  @Input() activeDiscounts!: number;
-  @Input() upcomingDiscounts!: number;
-  @Input() archivedDiscounts!: number;
-  @Input() onTabChange!: (tabName: DiscountTab) => void;
+  @Input({required: true}) activeDiscounts!: number;
+  @Input({required: true}) upcomingDiscounts!: number;
+  @Input({required: true}) archivedDiscounts!: number;
+  @Input({required: true}) onTabChange!: (tabName: DiscountTab) => void;
 
   tableTabs: {
     id: number,

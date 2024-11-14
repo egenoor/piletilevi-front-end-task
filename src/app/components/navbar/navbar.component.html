@@ -1,8 +1,10 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div
   class="navbar-container flex h-20 flex-wrap content-center justify-between bg-white px-10 py-8"
 >
   <div class="flex">
-    <app-piletilevi-svg
+    <app-icon
       class="mr-4 mt-4 self-center"
       [name]="'piletilevi-logo'"
     />
@@ -31,7 +33,7 @@
       <div (mouseleave)="closeLanguageDropdown()">
         <button class="flex items-center" (click)="openLanguageDropdown()">
           <span class="mr-1">{{ activeLanguage }}</span
-          ><app-piletilevi-svg [name]="'arrow-down'" class="mb-1" />
+          ><app-icon [name]="'arrow-down'" class="mb-1" />
         </button>
         <ul *ngIf="isLanguageDropdownOpened" class="absolute">
           <li
@@ -51,7 +53,7 @@
         <td>
           <div class="ml-2 flex items-center">
             <span class="mr-2 font-bold">Noorsooteater</span
-            ><app-piletilevi-svg [name]="'arrow-down'" class="mb-1" />
+            ><app-icon [name]="'arrow-down'" class="mb-1" />
           </div>
         </td>
       </tr>

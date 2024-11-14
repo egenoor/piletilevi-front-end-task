@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Category } from '../../enums/category'
+import { Category } from '../../common/enums/category.enum'
 
 @Component({
   selector: 'app-new-discount-modal',
@@ -9,7 +9,7 @@ import { Category } from '../../enums/category'
 export class NewDiscountModalComponent {
   allCategories = Object.values(Category);
   selectedCategories: Category[] = [];
-  isCategoriesDropdownOpen: boolean = false;
+  isCategoriesDropdownOpen = false;
   @Input({required: true}) onClose!: () => void;
 
   openCategoriesDropdown() {

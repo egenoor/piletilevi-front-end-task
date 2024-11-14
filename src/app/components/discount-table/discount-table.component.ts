@@ -1,9 +1,10 @@
 import { formatCurrency, formatDate } from '@angular/common'
 import { Component, Input, OnInit } from '@angular/core'
 import { map } from 'rxjs'
-import { DiscountTab, Filters } from '../../common/types'
+import { Filters } from '../../common/interfaces/filters.interface'
+import { MappedDiscount } from '../../common/interfaces/mapped-discount.interface'
+import { DiscountTab } from '../../common/types/discount-tab.type'
 import { Discount } from '../../models/discount'
-import { MappedDiscount } from '../../models/mapped-discount'
 import { DiscountService } from '../../services/discount/discount.service'
 
 @Component({
@@ -14,7 +15,7 @@ import { DiscountService } from '../../services/discount/discount.service'
 export class DiscountTableComponent implements OnInit {
   private _filters: Filters = {freeText: "", categories: []};
   activeTab: DiscountTab = "currentlyActive";
-  pageNumber: number = 1;
+  pageNumber = 1;
   pageSize = 10;
   allDiscounts: MappedDiscount[] = [];
   filteredDiscounts: MappedDiscount[] = [];
@@ -74,6 +75,7 @@ export class DiscountTableComponent implements OnInit {
   }
 
   getActiveTabFilterFn() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     let tabFilterFn = (_discount: MappedDiscount) => true;
     if (this.activeTab === "currentlyActive") {
       tabFilterFn = this.filterActiveDiscounts;

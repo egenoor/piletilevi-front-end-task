@@ -1,4 +1,4 @@
-import { Category } from '../enums/category'
+import { Category } from '../enums/category.enum'
 
 export interface MappedDiscount {
   name: string;

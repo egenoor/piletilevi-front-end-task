@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core'
-import { Filters } from '../../common/types'
-import { Category } from '../../enums/category'
+import { Category } from '../../common/enums/category.enum'
+import { Filters } from '../../common/interfaces/filters.interface'
 
 @Component({
   selector: 'app-discount-filters',
@@ -8,10 +8,10 @@ import { Category } from '../../enums/category'
   styleUrl: './discount-filters.component.scss'
 })
 export class DiscountFiltersComponent {
-  freeText: string = "";
+  freeText = "";
   selectedCategories: Category[] = [];
   allCategories = Object.values(Category);
-  isCategoriesDropdownOpen: boolean = false;
+  isCategoriesDropdownOpen = false;
   @Input({required: true}) onSubmit!: (filters: Filters) => void;
   
   searchDiscounts(freeText: string, categories: Category[]) {

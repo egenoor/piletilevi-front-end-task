@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core'
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
-  isVisible: boolean = false;
+  isVisible = false;
   @Input({required: true}) onClose!: () => void;
 }

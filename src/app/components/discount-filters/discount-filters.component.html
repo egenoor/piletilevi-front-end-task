@@ -1,16 +1,17 @@
 <div class="mt-4 flex h-10 justify-start">
   <div class="search-input-container mr-3">
     <input
+      name="freeText"
       type="text"
       placeholder="Discount name, code"
       class="text-gray-350 placeholder-gray-350 px-2 py-3"
       [(ngModel)]="freeText"
     />
     <button class="clear bg-white" (click)="freeText = ''">
-      <app-piletilevi-svg [name]="'close'" />
+      <app-icon [name]="'close'" />
     </button>
     <button class="search cursor-default bg-white">
-      <app-piletilevi-svg [name]="'search'" />
+      <app-icon [name]="'search'" />
     </button>
   </div>
   <div class="dropdown-container mr-5 flex justify-between">
@@ -23,13 +24,14 @@
       } @else {
         Applies to
       }
-      <app-piletilevi-svg [name]="'arrow-down'" />
+      <app-icon [name]="'arrow-down'" />
     </button>
     <div
       class="dropdown-content"
       *ngIf="isCategoriesDropdownOpen"
       (mouseleave)="closeCategoriesDropdown()"
     >
+      <!-- eslint-disable-next-line @angular-eslint/template/label-has-associated-control -->
       <label *ngFor="let c of allCategories" class="flex items-center">
         <app-checkbox
           [value]="c"
@@ -48,6 +50,7 @@
     SEARCH
   </button>
   <button
+    name="clear-filters"
     class="text-gray-350 text-sm font-bold leading-5"
     (click)="clearFilters.bind(this)()"
   >

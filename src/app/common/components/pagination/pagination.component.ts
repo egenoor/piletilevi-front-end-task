@@ -6,10 +6,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
   styleUrl: './pagination.component.scss'
 })
 export class PaginationComponent {
-  currentPage: number = 1;
-  @Input() pageSize!: number;
-  @Input() totalItems!: number;
-  @Output() pageChanged: EventEmitter<number> = new EventEmitter();
+  currentPage = 1;
+  @Input({required: true}) pageSize!: number;
+  @Input({required: true}) totalItems!: number;
+  @Output() pageChanged = new EventEmitter<number>();
 
   get totalPages(): number {
     return Math.ceil(this.totalItems / this.pageSize);

@@ -1,4 +1,4 @@
-import { Category } from '../enums/category'
+import { Category } from '../common/enums/category.enum'
 
 export interface Discount {
   id: number;

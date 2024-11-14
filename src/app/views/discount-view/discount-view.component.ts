@@ -1,12 +1,13 @@
 import { Component } from '@angular/core'
-import { Filters } from '../../common/types'
+import { Filters } from '../../common/interfaces/filters.interface'
+
 
 @Component({
   selector: 'app-discount-view',
   templateUrl: './discount-view.component.html'
 })
 export class DiscountViewComponent {
-  isDiscountModalShown: boolean = false;
+  isDiscountModalShown = false;
   filters: Filters = {freeText: "", categories: []};
 
   handleFiltersSubmit(filters: Filters) {

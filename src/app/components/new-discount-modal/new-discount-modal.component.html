@@ -19,13 +19,14 @@
         } @else {
           Applies to
         }
-        <app-piletilevi-svg [name]="'arrow-down'" />
+        <app-icon [name]="'arrow-down'" />
       </button>
       <div
         class="dropdown-content"
         *ngIf="isCategoriesDropdownOpen"
         (mouseleave)="closeCategoriesDropdown()"
       >
+        <!-- eslint-disable-next-line @angular-eslint/template/label-has-associated-control -->
         <label *ngFor="let c of allCategories" class="flex items-center">
           <app-checkbox
             [value]="c"
@@ -37,6 +38,7 @@
         </label>
       </div>
       <button
+        name="close-button"
         class="bg-violet-200 ml-4 rounded-md px-4 py-3 font-bold text-white"
         type="button"
         (click)="onClose()"

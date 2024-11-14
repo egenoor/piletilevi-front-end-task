@@ -1,21 +1,21 @@
+import { registerLocaleData } from '@angular/common'
 import { provideHttpClient } from '@angular/common/http'
+import localeEt from '@angular/common/locales/et'
 import { LOCALE_ID, NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppComponent } from './app.component'
-import { CheckboxComponent } from './common/checkbox/checkbox.component'
+import { CheckboxComponent } from './common/components/checkbox/checkbox.component'
+import { IconComponent } from './common/components/icon/icon.component'
+import { ModalComponent } from './common/components/modal/modal.component'
+import { PaginationComponent } from "./common/components/pagination/pagination.component"
 import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.component"
 import { DiscountFiltersComponent } from './components/discount-filters/discount-filters.component'
 import { DiscountTableComponent } from './components/discount-table/discount-table.component'
-import { ModalComponent } from './components/modal/modal.component'
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { NewDiscountModalComponent } from "./components/new-discount-modal/new-discount-modal.component"
-import { PaginationComponent } from "./components/pagination/pagination.component"
 import { TableTabsComponent } from './components/table-tabs/table-tabs.component'
-import { PiletileviSvgComponent } from './icons/piletilevi-svg/piletilevi-svg.component'
 import { DiscountViewComponent } from './views/discount-view/discount-view.component'
-import { registerLocaleData } from '@angular/common'
-import localeEt from '@angular/common/locales/et'
 
 registerLocaleData(localeEt)
 
@@ -24,7 +24,6 @@ registerLocaleData(localeEt)
     AppComponent,
     NavbarComponent,
     BreadcrumbComponent,
-    PiletileviSvgComponent,
     DiscountTableComponent,
     DiscountViewComponent,
     NewDiscountModalComponent,
@@ -32,7 +31,8 @@ registerLocaleData(localeEt)
     PaginationComponent,
     DiscountFiltersComponent,
     CheckboxComponent,
-    TableTabsComponent
+    TableTabsComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,

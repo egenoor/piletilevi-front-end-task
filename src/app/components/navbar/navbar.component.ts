@@ -7,8 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-  isLanguageDropdownOpened: boolean = false;
-  activeLanguage: string = "EN";
+  isLanguageDropdownOpened = false;
+  activeLanguage = "EN";
   selectableLanguages: string[] = ["ET"];
   allLanguages: string[] = ["EN", "ET"];
 

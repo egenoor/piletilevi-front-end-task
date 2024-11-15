@@ -13,7 +13,7 @@ import Search from '../../../icons/piletilevi-svg/search'
 @Component({
   selector: 'app-icon',
   template: `
-    <div class="inline-block" [innerHTML]="selectedIcon"></div>
+    <div class="inline-block flex justify-center" [innerHTML]="selectedIcon"></div>
   `,
 })
 export class IconComponent implements OnInit {

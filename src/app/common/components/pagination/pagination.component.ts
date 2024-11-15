@@ -16,7 +16,7 @@ export class PaginationComponent {
   }
 
   createArrayOfSize(size: number) {
-    return new Array(size).fill(0)
+    return [...Array(size + 1).keys()].slice(1) // [1, 2, 3, 4, ...]
   }
 
   changePage(page: number): void {

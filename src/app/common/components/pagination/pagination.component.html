@@ -9,15 +9,15 @@
   </button>
   <span
     name="page-number"
-    *ngFor="let item of createArrayOfSize(totalPages); let i = index"
+    *ngFor="let pageNum of createArrayOfSize(totalPages)"
     [ngClass]="
-      i + 1 === currentPage
+      pageNum === currentPage
         ? 'text-black mr-4 font-medium'
         : 'text-violet-100 mr-4 font-medium'
     "
   >
-    {{ i + 1 }}
-    <hr *ngIf="i + 1 === currentPage" class="bg-black underline-height" />
+    {{ pageNum }}
+    <hr *ngIf="pageNum === currentPage" class="bg-black underline-height" />
   </span>
   <button
     name="next-page"

@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
 
+## Live demo
+
+https://egenoor.github.io/piletilevi-front-end-task/
+
 ## Installation
 
 `npm ci`

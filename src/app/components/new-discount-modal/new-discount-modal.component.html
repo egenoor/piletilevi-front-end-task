@@ -12,7 +12,7 @@
     <div class="dropdown-container flex justify-between">
       <button
         (click)="openCategoriesDropdown()"
-        class="border-gray-200 text-gray-350 flex w-full justify-between rounded-md border px-2 py-3 text-left"
+        class="border-gray-200 text-gray-350 flex items-center w-full justify-between rounded-md border px-2 py-3 text-left"
       >
         @if (selectedCategories.length > 0) {
           {{ selectedCategories.join(", ") }}

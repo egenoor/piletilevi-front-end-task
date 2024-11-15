@@ -1,1 +1,0 @@
-export type DiscountTab = "currentlyActive" | "upcoming" | "archived";

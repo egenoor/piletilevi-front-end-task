@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href=/piletilevi-front-end-task/",
+    "deploy": "ng deploy --base-href=/piletilevi-front-end-task/ --repo=https://github.com/egenoor/piletilevi-front-end-task.git",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "ng e2e",
